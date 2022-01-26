@@ -45,36 +45,26 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Product product=productList.get(position);
 
-        holder.productTitleTv.setText(""+product.getProductName());
-        holder.productPriceTv.setText(""+product.getProductPrice().getBlPrice());
-        holder.ratingTv.setText("("+String.format("%.1f",product.getRating())+")");
-        holder.ratingBar.setRating((float) product.getRating());
+        if(product.getProductName().length()>15){
+
+            holder.productTitleTv.setText(""+product.getProductName().substring(0,14)+"..");
+        }else{
+            holder.productTitleTv.setText(""+product.getProductName());
+        }
+
+        if(product.getProductPrice().size()>1){
+            holder.productPriceTv.setText("\u09F3"+Product.getMinimumPrice(product.getProductPrice())+"-"+Product.getMaximumPrice(product.getProductPrice()));
+        }else{
+            holder.productPriceTv.setText("\u09F3"+product.getProductPrice().get(0).getPrice());
+        }
+
+
+
+
         List<ImageModel> imageList=product.getProductImages();
         if(imageList!=null){
             Picasso.get().load(imageList.get(0).getImageUrl()).placeholder(R.drawable.sari).into(holder.productImageView);
         }
-
-        holder.cartImageview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listner.onAddToCart(holder.getAdapterPosition());
-            }
-        });
-        holder.deleteImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listner.onDelete(holder.getAdapterPosition());
-            }
-        });
-
-        if(isSeller){
-            holder.deleteImageView.setVisibility(View.VISIBLE);
-            holder.cartImageview.setVisibility(View.GONE);
-        }else{
-            holder.deleteImageView.setVisibility(View.GONE);
-        }
-
-
 
     }
 
@@ -85,19 +75,13 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     public class MyViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView productImageView;
-        TextView productTitleTv,productPriceTv,ratingTv;
-        RatingBar ratingBar;
-        ImageView cartImageview,deleteImageView;
+        TextView productTitleTv,productPriceTv;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             productImageView=itemView.findViewById(R.id.p_i_productImageViewId);
             productTitleTv=itemView.findViewById(R.id.p_i_productTitleTv);
             productPriceTv=itemView.findViewById(R.id.p_i_productPriceTv);
-            ratingBar=itemView.findViewById(R.id.p_i_ratingBarId);
-            ratingTv=itemView.findViewById(R.id.p_i_ratingTvId);
-            cartImageview=itemView.findViewById(R.id.p_i_cartImageViewId);
-            deleteImageView=itemView.findViewById(R.id.p_i_deleteProduct);
 
             itemView.setOnClickListener(this);
 
@@ -116,8 +100,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     }
     public interface  OnItemClickListner{
         void onItemClick(int position);
-        void onAddToCart(int position);
-        void onDelete(int position);
     }
 
     public void setOnItemClickListner(OnItemClickListner listner){

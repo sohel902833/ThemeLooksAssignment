@@ -59,13 +59,11 @@ public class SellerAddProductActivity extends AppCompatActivity {
     private RecyclerView imageRecyclerView;
     private Button chooseImageButton,uploadProductButton;
     private Spinner brandSpinner,categorySpinner;
+    private TextView addProductVariantTv;
 
-    private LinearLayout imageUploadSectionLayout;
+    private LinearLayout imageUploadSectionLayout,productVariantLn;
     private ProgressBar imageUploadProgress,loadingProgress;
     private TextView completeUploadTvId;
-    private EditText bsPriceEt,blpPriceEt,wsPriceEt,wlPriceEt;
-
-
     ArrayList imageList = new ArrayList();
     ArrayList<ImageModel> imageModelArrayList=new ArrayList<>();
     ImageSliderAdapter sliderAdapter;
@@ -79,7 +77,9 @@ public class SellerAddProductActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
 
     private String selectedCategory="",selectedBrand="";
-
+    private List<View> productVariantViewList=new ArrayList<>();
+    private List<ProductPrice> productPriceList=new ArrayList<>();
+    private boolean noErrorInVariant=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,8 +97,6 @@ public class SellerAddProductActivity extends AppCompatActivity {
                 startActivityForResult(intent, PICK_IMAGE);
             }
         });
-
-
         brandSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -110,7 +108,8 @@ public class SellerAddProductActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });  categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        });
+        categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Category category=categoryList.get(position);
@@ -122,39 +121,20 @@ public class SellerAddProductActivity extends AppCompatActivity {
 
             }
         });
-
-
         uploadProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String productName=productNameEt.getText().toString();
                 String productDescription=productDescriptionEt.getText().toString();
-                String blPrice=blpPriceEt.getText().toString();
-                String bsPrice=bsPriceEt.getText().toString();
-                String wlPrice=wlPriceEt.getText().toString();
-                String wsPrice=wsPriceEt.getText().toString();
 
                 if(imageList.size()==0){
                     Toast.makeText(SellerAddProductActivity.this, "Please Choose Some Images For Your Product.", Toast.LENGTH_SHORT).show();
                 }else if(productName.isEmpty()){
                     productNameEt.setError("Enter Product Name.");
                     productNameEt.requestFocus();
-                }else if(wsPrice.isEmpty()){
-                    wsPriceEt.setError("Enter Product Price.");
-                    wsPriceEt.requestFocus();
+                }else if(productVariantViewList.size()==0){
+                    Toast.makeText(SellerAddProductActivity.this, "Please Add Atlease One Variant For Your Product", Toast.LENGTH_SHORT).show();
                 }
-                else if(wlPrice.isEmpty()){
-                    wlPriceEt.setError("Enter Product Price.");
-                    wlPriceEt.requestFocus();
-                }else if(bsPrice.isEmpty()){
-                    bsPriceEt.setError("Enter Product Price.");
-                    bsPriceEt.requestFocus();
-                }else if(blPrice.isEmpty()){
-                    blpPriceEt.setError("Enter Product Price.");
-                    blpPriceEt.requestFocus();
-                }
-
-
                 else if(productDescription.isEmpty()){
                     productDescriptionEt.setError("Enter Product Description.");
                     productDescriptionEt.requestFocus();
@@ -163,20 +143,36 @@ public class SellerAddProductActivity extends AppCompatActivity {
                 }else if(selectedCategory.isEmpty()){
                     Toast.makeText(SellerAddProductActivity.this, "Please Select A Category For Your Product", Toast.LENGTH_SHORT).show();
                 }else{
+
+                    setProductPrice();
+                    if(productPriceList.size()==productVariantViewList.size()){
+                        loadingProgress.setVisibility(View.VISIBLE);
+                        imageUploadSectionLayout.setVisibility(View.VISIBLE);
+                        completeUploadTvId.setText("0/"+imageList.size());
+                        uploadProductButton.setText("Uploading Image.....");
+                        uploadProductButton.setEnabled(false);
+
+
+                        uploadImageToStorage(productName,productDescription);
+                    }
                     //all is perfect lets upload product.
-                    loadingProgress.setVisibility(View.VISIBLE);
-                    imageUploadSectionLayout.setVisibility(View.VISIBLE);
-                    completeUploadTvId.setText("0/"+imageList.size());
-                    uploadProductButton.setText("Uploading Image.....");
-                    uploadProductButton.setEnabled(false);
-                    ProductPrice productPrice=new ProductPrice(Double.parseDouble(blPrice),Double.parseDouble(bsPrice),Double.parseDouble(wlPrice),Double.parseDouble(wsPrice));
-                    uploadImageToStorage(productName,productPrice,productDescription);
+
                 }
 
 
             }
         });
+
+        addProductVariantTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addProductVariantView();
+            }
+        });
+
+
     }
+
 
     @Override
     protected void onStart() {
@@ -192,10 +188,6 @@ public class SellerAddProductActivity extends AppCompatActivity {
         brandSpinner=findViewById(R.id.s_ap_selectProductBrand);
         categorySpinner=findViewById(R.id.s_ap_selectProductCategory);
         productNameEt=findViewById(R.id.s_ap_productNameEt);
-        bsPriceEt=findViewById(R.id.s_ap_BSPriceEt);
-        blpPriceEt=findViewById(R.id.s_ap_BLPriceEt);
-        wsPriceEt=findViewById(R.id.s_ap_WSPriceEt);
-        wlPriceEt=findViewById(R.id.s_ap_WLPriceEt);
         productDescriptionEt=findViewById(R.id.s_ap_productDescription);
         chooseImageButton=findViewById(R.id.s_ap_chooseImageButton);
         uploadProductButton=findViewById(R.id.s_ap_uploadProductButton);
@@ -203,6 +195,8 @@ public class SellerAddProductActivity extends AppCompatActivity {
         imageUploadProgress=findViewById(R.id.imageUploadProgressBarId);
         loadingProgress=findViewById(R.id.loadingProgressBar);
         completeUploadTvId=findViewById(R.id.completeUploadTvId);
+        addProductVariantTv=findViewById(R.id.addProductVariantTv);
+        productVariantLn=findViewById(R.id.product_variantList_Ln);
 
 
         imageRecyclerView=findViewById(R.id.s_ap_selectedImaegRecyclerViewId);
@@ -291,7 +285,7 @@ public class SellerAddProductActivity extends AppCompatActivity {
         MimeTypeMap mimeTypeMap=MimeTypeMap.getSingleton();
         return  mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(imageuri));
     }
-    private void uploadImageToStorage(String productName,ProductPrice productPrice,String productDescription) {
+    private void uploadImageToStorage(String productName,String productDescription) {
            imageModelArrayList.clear();
            /* progressDialog.setTitle("Uploading Image");
             progressDialog.setCancelable(false);
@@ -318,7 +312,7 @@ public class SellerAddProductActivity extends AppCompatActivity {
                             Toast.makeText(SellerAddProductActivity.this, "Image Uploaded.", Toast.LENGTH_SHORT).show();
                             imageUploadSectionLayout.setVisibility(View.GONE);
                             uploadProductButton.setText("Saving Product..");
-                            saveProductInstanceToDatabase(productName,productPrice,productDescription);
+                            saveProductInstanceToDatabase(productName,productDescription);
                         }
 
                     }
@@ -327,24 +321,21 @@ public class SellerAddProductActivity extends AppCompatActivity {
 
 
     }
-    private void saveProductInstanceToDatabase(String productName,ProductPrice productPrice,String productDescription) {
+    private void saveProductInstanceToDatabase(String productName,String productDescription) {
         String productId=ApiRef.getProductRef().push().getKey()+System.currentTimeMillis();
         User currentUser=userDb.getUserData();
-       Product product=new Product(productId,currentUser.getUserId(),productName,productDescription,selectedBrand,selectedCategory,productPrice,0,imageModelArrayList);
+       Product product=new Product(productId,currentUser.getUserId(),productName,productDescription,selectedBrand,selectedCategory,productPriceList,0,imageModelArrayList);
         ApiRef.getProductRef()
                 .child(productId)
                 .setValue(product)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
+                        clearAllProductVariantView();
                         imageList.clear();
                         imageModelArrayList.clear();
                         imageRecyclerView.setVisibility(View.GONE);
                         productNameEt.setText("");
-                        bsPriceEt.setText("");
-                        blpPriceEt.setText("");
-                        wsPriceEt.setText("");
-                        wlPriceEt.setText("");
                         productDescriptionEt.setText("");
                         selectedBrand="";
                         selectedCategory="";
@@ -360,5 +351,63 @@ public class SellerAddProductActivity extends AppCompatActivity {
                 Toast.makeText(SellerAddProductActivity.this, "Product Save Failed.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void clearAllProductVariantView() {
+        productPriceList.clear();
+        if(productVariantViewList.size()>0){
+            for(View view:productVariantViewList){
+                productVariantLn.removeView(view);
+            }
+            productVariantViewList.clear();
+        }
+    }
+
+
+    private void addProductVariantView(){
+        View view=getLayoutInflater().inflate(R.layout.product_price_item_layout,null,false);
+
+        ImageView closeBtn=view.findViewById(R.id.pp_closeImg);
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeProductVariantView(view);
+            }
+        });
+
+        productVariantViewList.add(view);
+        productVariantLn.addView(view);
+
+    }
+    private void removeProductVariantView(View view){
+        productVariantLn.removeView(view);
+        productVariantViewList.remove(view);
+    }
+    private void setProductPrice() {
+        productPriceList.clear();
+        if(productVariantViewList.size()>0){
+            for(View view:productVariantViewList){
+                EditText sizeEt=view.findViewById(R.id.pp_sizeEt);
+                EditText priceEt=view.findViewById(R.id.pp_priceEt);
+                EditText colorEt=view.findViewById(R.id.pp_colorEt);
+
+                String size=sizeEt.getText().toString();
+                String price=priceEt.getText().toString();
+                String color=colorEt.getText().toString();
+                if(color.isEmpty()){
+                    colorEt.setError("Enter Color.");
+                    colorEt.requestFocus();
+                }else if(size.isEmpty()){
+                    sizeEt.setError("Enter Size.");
+                    sizeEt.requestFocus();
+                }else if(price.isEmpty()){
+                    priceEt.setError("Enter Price");
+                    priceEt.requestFocus();
+                }else{
+                    ProductPrice productPrice=new ProductPrice(color,size,Double.parseDouble(price));
+                    productPriceList.add(productPrice);
+                }
+            }
+        }
     }
 }

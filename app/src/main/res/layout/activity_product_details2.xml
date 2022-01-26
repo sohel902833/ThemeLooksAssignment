@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.user.ProductDetails2Activity">
+
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/progressBarId"
+        />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.jsibbold.zoomage.ZoomageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@drawable/sari"
+                android:scaleType="fitXY"
+                android:id="@+id/pd_productImageViewId"
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_below="@+id/pd_productImageViewId"
+                android:id="@+id/pd_productShortImagesRecyclerViewId"
+                />
+
+            <LinearLayout
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/pd_socialIcons"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/pd_productShortImagesRecyclerViewId"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginRight="10dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/message_icon"
+                    android:padding="7dp"
+                    android:background="@drawable/white_circle"
+                    />
+                <ImageView
+                    android:layout_marginRight="5dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/toy_icon"
+                    android:padding="7dp"
+                    android:background="@drawable/white_circle"
+                    />
+                <ImageView
+                    android:layout_marginRight="5dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/message_icon"
+                    android:padding="7dp"
+                    android:background="@drawable/white_circle"
+                    />
+                <ImageView
+                    android:layout_marginRight="5dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_volume"
+                    android:padding="7dp"
+                    android:background="@drawable/white_circle"
+                    />
+
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/pd_productNameTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pd_socialIcons"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:text="Md Sohrab Hossain Sohel Rana"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/pd_ratingLn"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/pd_productNameTv"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RatingBar
+                    android:layout_gravity="center_vertical"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:id="@+id/pd_RatingBarId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:progressBackgroundTint="@color/black"
+                    android:progressTint="#F44336"
+                    android:rating="3"
+                    android:stepSize="0.5" />
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/p_i_soldOutTvId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0.00/5   0 Rating"
+                    android:layout_below="@+id/p_i_productImageViewId"
+                    android:textColor="#F44336"
+                    android:textSize="12sp"
+
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/pd_productDescriptionTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_below="@+id/pd_ratingLn"
+                android:text="Md Sohrab hossain Sohel I am a student ON Class 6"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                />
+
+            <View
+                android:id="@+id/line1"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/pd_productDescriptionTv"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/black"
+                />
+            <TextView
+
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/pd_selectedColorAndSizeTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Selected Color And Size"
+                android:layout_below="@+id/line1"
+                android:textColor="#F44336"
+                android:textSize="12sp"
+
+                />
+
+            <TextView
+                android:id="@+id/pd_productPriceTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pd_selectedColorAndSizeTv"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="598"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/pd_productPriceTv"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/black"
+                />
+            <TextView
+                android:id="@+id/pd_sizeTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Size&amp;Color"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginBottom="20dp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pd_sizeTv"
+                android:id="@+id/pd_sizeAndColorRecyclerViewId"
+                />
+            <TextView
+                android:id="@+id/pd_quantityTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pd_sizeAndColorRecyclerViewId"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Quantity"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/quantity_Ln"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/pd_quantityTv"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:padding="5dp"
+                    android:background="@drawable/stroke_orange"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/pd_quantityDecreseButton"
+                        android:src="@drawable/minus_icon"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:id="@+id/pd_quantityTvId"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        />
+
+                    <ImageView
+                        android:layout_gravity="center_vertical"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/pd_quantityIncreaseButton"
+                        android:src="@drawable/add_icon"
+                        app:tint="@color/black" />
+
+
+
+                </LinearLayout>
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sold Out"
+                    android:textColor="#F44336"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+
+                    />
+
+
+            </LinearLayout>
+            <View
+                android:layout_marginBottom="10dp"
+                android:id="@+id/line3"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/quantity_Ln"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/black"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                android:layout_marginBottom="35dp"
+                android:layout_below="@+id/line3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:background="@drawable/orange_bg"
+                            android:text="Place Order"
+                            android:layout_marginRight="20dp"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:textAllCaps="false"
+                            android:padding="10dp"
+                            />
+                        <Button
+                            android:layout_gravity="center_vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:background="@drawable/orange_stroke_bg"
+                            android:text="Add To Cart"
+                            android:textColor="#F44336"
+                            android:textSize="14sp"
+                            android:textAllCaps="false"
+                            android:padding="10dp"
+                            />
+
+
+
+                    </LinearLayout>
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Chat Now"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:drawableLeft="@drawable/message_icon"
+                        android:drawableTint="#F44336"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:text="Add To White List"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:drawableLeft="@drawable/ic_volume"
+                        android:drawableTint="#F44336"
+                        android:textStyle="bold" />
+
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

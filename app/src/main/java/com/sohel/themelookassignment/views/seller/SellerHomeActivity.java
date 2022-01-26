@@ -20,7 +20,7 @@ public class SellerHomeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private UserDb userDb;
 
-    private CardView profileCard,productsCard,addProductsCard,logoutCard,addBrandCard,addCategoryCard,orderCard;
+    private CardView addProductsCard,logoutCard,addBrandCard,addCategoryCard;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,24 +37,15 @@ public class SellerHomeActivity extends AppCompatActivity {
         addCategoryCard.setOnClickListener(v -> {
             CustomDialog.showCategoryDialog(SellerHomeActivity.this);
         });
-        productsCard.setOnClickListener(v -> {
-            startActivity(new Intent(SellerHomeActivity.this,SellerProductActivity.class));
-        });
-        orderCard.setOnClickListener(v -> {
-            startActivity(new Intent(SellerHomeActivity.this,SellerOrderActivity.class));
-        });
 
         addProductsCard.setOnClickListener(v -> startActivity(new Intent(SellerHomeActivity.this,SellerAddProductActivity.class)));
     }
     private void init(){
         userDb=new UserDb(this);
         mAuth=FirebaseAuth.getInstance();
-        profileCard=findViewById(R.id.s_h_ProfileCard);
         addProductsCard=findViewById(R.id.s_h_addProductCard);
-        productsCard=findViewById(R.id.s_h_productsCard);
         logoutCard=findViewById(R.id.s_h_logoutCard);
         addBrandCard=findViewById(R.id.s_h_addBrandCard);
-        orderCard=findViewById(R.id.s_h_orderCard);
         addCategoryCard=findViewById(R.id.s_h_addCategoryCard);
         Toolbar toolbar = findViewById(R.id.appBarId);
         AppBar.setUpAppBar(this,toolbar,"Seller");

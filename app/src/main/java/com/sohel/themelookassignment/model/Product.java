@@ -5,12 +5,12 @@ import java.util.List;
 public class Product {
     String productId,shopId,productName,productDescription,brand,category;
     double rating;
-    ProductPrice productPrice;
+    List<ProductPrice> productPrice;
     List<ImageModel> productImages;
     int quantity=1;
     public Product(){}
 
-    public Product(String productId, String shopId, String productName, String productDescription, String brand, String category, ProductPrice productPrice, double rating, List<ImageModel> productImages) {
+    public Product(String productId, String shopId, String productName, String productDescription, String brand, String category, List<ProductPrice> productPrice, double rating, List<ImageModel> productImages) {
         this.productId = productId;
         this.shopId = shopId;
         this.productName = productName;
@@ -21,7 +21,7 @@ public class Product {
         this.rating = rating;
         this.productImages = productImages;
     }
-    public Product(String productId, String shopId, String productName, String productDescription, String brand, String category, ProductPrice productPrice, double rating, List<ImageModel> productImages,int quantity) {
+    public Product(String productId, String shopId, String productName, String productDescription, String brand, String category, List<ProductPrice> productPrice, double rating, List<ImageModel> productImages,int quantity) {
         this.productId = productId;
         this.shopId = shopId;
         this.productName = productName;
@@ -82,12 +82,11 @@ public class Product {
         this.category = category;
     }
 
-
-    public ProductPrice getProductPrice() {
+    public List<ProductPrice> getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(ProductPrice productPrice) {
+    public void setProductPrice(List<ProductPrice> productPrice) {
         this.productPrice = productPrice;
     }
 
@@ -114,21 +113,34 @@ public class Product {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    public  static  Double getExactProductPrice(ProductPrice productPrice,String color,String size){
 
-        if(color.equals("White") && size.equals("Small")){
-            return productPrice.getWsPrice();
-        }else if(color.equals("White") && size.equals("Large")){
-            return  productPrice.getWlPrice();
-        }else if(color.equals("Black") && size.equals("Small")){
-            return  productPrice.getBsPrice();
-        }else if(color.equals("Black") && size.equals("Large")){
-            return  productPrice.getBlPrice();
-        }else {
-            return productPrice.getBlPrice();
+
+    public static Double getMaximumPrice(List<ProductPrice> productPriceList){
+        Double maximumPrice=0.0;
+        if(productPriceList!=null && productPriceList.size()>0){
+           maximumPrice=productPriceList.get(0).getPrice();
+            for(ProductPrice productPrice:productPriceList){
+                if(maximumPrice< productPrice.getPrice()){
+                    maximumPrice =productPrice.getPrice();
+                }
+            }
+
         }
-
-
-
+        return maximumPrice;
     }
+    public static Double getMinimumPrice(List<ProductPrice> productPriceList){
+        Double minimumPrice=0.0;
+        if(productPriceList!=null && productPriceList.size()>0){
+           minimumPrice=productPriceList.get(0).getPrice();
+            for(ProductPrice productPrice:productPriceList){
+                if(minimumPrice> productPrice.getPrice()){
+                    minimumPrice =productPrice.getPrice();
+                }
+            }
+
+        }
+        return minimumPrice;
+    }
+
+
 }

@@ -54,156 +54,36 @@
                     android:fontFamily="@font/aclonica"
                     android:textSize="16sp"
                     />
-
             </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
+            <TextView
+                android:id="@+id/addProductVariantTv"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/aclonica"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Product Variant And Price"
+                android:drawableRight="@drawable/add_icon"
+                android:drawableTint="@color/black"
+                android:layout_marginRight="20dp"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                />
+
+            <LinearLayout
+                android:id="@+id/product_variantList_Ln"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <LinearLayout
-                    android:padding="10dp"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:textStyle="bold"
-                        android:fontFamily="@font/aclonica"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Price For White&amp;Small"
-
-                        />
-                    <EditText
-                        android:id="@+id/s_ap_WSPriceEt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#fff"
-                        android:padding="10dp"
-                        android:inputType="number"
-                        android:hint="Price"
-                        android:fontFamily="@font/aclonica"
-                        android:textSize="16sp"
-                        />
-
-                </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:padding="10dp"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:textStyle="bold"
-                        android:fontFamily="@font/aclonica"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Price For White&amp;Large"
-
-                        />
-                    <EditText
-                        android:id="@+id/s_ap_WLPriceEt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#fff"
-                        android:padding="10dp"
-                        android:inputType="number"
-                        android:hint="Price"
-                        android:fontFamily="@font/aclonica"
-                        android:textSize="16sp"
-                        />
-
-                </LinearLayout>
+            </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:padding="10dp"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:textStyle="bold"
-                        android:fontFamily="@font/aclonica"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Price For Black&amp;Small"
-
-                        />
-                    <EditText
-                        android:id="@+id/s_ap_BSPriceEt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#fff"
-                        android:padding="10dp"
-                        android:inputType="number"
-                        android:hint="Price"
-                        android:fontFamily="@font/aclonica"
-                        android:textSize="16sp"
-                        />
-
-                </LinearLayout>
 
 
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
-                <LinearLayout
-                    android:padding="10dp"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:textStyle="bold"
-                        android:fontFamily="@font/aclonica"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Price For Black&amp;Large"
-
-                        />
-                    <EditText
-                        android:id="@+id/s_ap_BLPriceEt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#fff"
-                        android:padding="10dp"
-                        android:inputType="number"
-                        android:hint="Price"
-                        android:fontFamily="@font/aclonica"
-                        android:textSize="16sp"
-                        />
-
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_margin="10dp"
                 app:cardBackgroundColor="@color/white"

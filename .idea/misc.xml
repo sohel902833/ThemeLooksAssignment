@@ -3,12 +3,44 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/drawable-v24/orange_stroke_bg.xml" value="0.29444444444444445" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/drawable-v24/stroke_orange.xml" value="0.2564814814814815" />
         <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/drawable/button_bg.xml" value="0.10462962962962963" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/drawable/orange_bg.xml" value="0.29444444444444445" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/drawable/stroke_black.xml" value="0.2564814814814815" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/drawable/white_circle.xml" value="0.26666666666666666" />
         <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/activity_main.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/activity_order.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/activity_order_details.xml" value="0.1641337386018237" />
         <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/activity_product_details.xml" value="0.25" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/activity_product_details2.xml" value="0.25" />
         <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/activity_seller_add_product.xml" value="0.25" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/activity_seller_home.xml" value="0.25" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/activity_seller_order.xml" value="0.15577507598784193" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/activity_seller_product.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/activity_seller_register.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/activity_seller_user_details.xml" value="0.1641337386018237" />
         <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/activity_start.xml" value="0.1" />
-        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/product_item_card.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/activity_user_register.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/add_brand_dialog.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/app_bar_layout.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/cart_item_layout.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/cart_item_view.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/color_size_item_layout.xml" value="0.25" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/fragment_order_accept.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/fragment_order_success.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/fragment_seller_completed_order.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/fragment_seller_delivered_order.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/fragment_seller_pending_order.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/image_item_layout.xml" value="0.15577507598784193" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/nav_header.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/order_item_layout.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/product_item_card.xml" value="0.25" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/product_price_item_layout.xml" value="0.22" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/quantity_counter_layout.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/review_item_layout.xml" value="0.1641337386018237" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/small_image_item_layout.xml" value="0.25" />
+        <entry key="..\:/Work/Android/2021/ThemeLookAssignment/app/src/main/res/layout/spinner_item_layout.xml" value="0.1641337386018237" />
       </map>
     </option>
   </component>

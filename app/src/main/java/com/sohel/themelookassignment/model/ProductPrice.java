@@ -1,44 +1,37 @@
 package com.sohel.themelookassignment.model;
 
 public class ProductPrice {
-    Double blPrice,bsPrice,wlPrice,wsPrice;
-
+    String color,size;
+    double price;
     public ProductPrice(){}
-    public ProductPrice(Double blPrice, Double bsPrice, Double wlPrice, Double wsPrice) {
-        this.blPrice = blPrice;
-        this.bsPrice = bsPrice;
-        this.wlPrice = wlPrice;
-        this.wsPrice = wsPrice;
-    }
-    public Double getBlPrice() {
-        return blPrice;
+
+    public ProductPrice(String color, String size, double price) {
+        this.color = color;
+        this.size = size;
+        this.price = price;
     }
 
-    public void setBlPrice(Double blPrice) {
-        this.blPrice = blPrice;
+    public String getColor() {
+        return color;
     }
 
-    public Double getBsPrice() {
-        return bsPrice;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public void setBsPrice(Double bsPrice) {
-        this.bsPrice = bsPrice;
+    public String getSize() {
+        return size;
     }
 
-    public Double getWlPrice() {
-        return wlPrice;
+    public void setSize(String size) {
+        this.size = size;
     }
 
-    public void setWlPrice(Double wlPrice) {
-        this.wlPrice = wlPrice;
+    public double getPrice() {
+        return price;
     }
 
-    public Double getWsPrice() {
-        return wsPrice;
-    }
-
-    public void setWsPrice(Double wsPrice) {
-        this.wsPrice = wsPrice;
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

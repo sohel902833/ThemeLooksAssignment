@@ -1,28 +1,19 @@
 package com.sohel.themelookassignment.views.user;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,8 +21,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.sohel.themelookassignment.R;
 import com.sohel.themelookassignment.adapter.ProductListAdapter;
 import com.sohel.themelookassignment.api.ApiRef;
-import com.sohel.themelookassignment.handler.CustomCart;
-import com.sohel.themelookassignment.localdb.CartDb;
 import com.sohel.themelookassignment.localdb.UserDb;
 import com.sohel.themelookassignment.model.Product;
 import com.sohel.themelookassignment.model.User;
@@ -50,17 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
     private ProductListAdapter productListAdapter;
     private List<Product> productList=new ArrayList<>();
-    private RelativeLayout cartLayout;
-    private CustomCart customCart;
-    private CartDb cartDb;
-
-    private ImageView menuButton;
 
 
 
     //navigation drawer
-    DrawerLayout drawerLayout;
-    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,45 +58,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(int position) {
                 Product product=productList.get(position);
-                Intent intent=new Intent(MainActivity.this,ProductDetailsActivity.class);
+                Intent intent=new Intent(MainActivity.this,ProductDetails2Activity.class);
                 intent.putExtra("productId",product.getProductId());
                 startActivity(intent);
              }
 
-            @Override
-            public void onAddToCart(int position) {
-                Product product=productList.get(position);
-                cartDb.addProductToCart(product);
-                customCart.notifyCartChanged();
-            }
-
-            @Override
-            public void onDelete(int position) {
-
-            }
-        });
-        menuButton.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("WrongConstant")
-            @Override
-            public void onClick(View v) {
-                if(!drawerLayout.isDrawerOpen(Gravity.START))
-                    drawerLayout.openDrawer(Gravity.START);
-                else drawerLayout.closeDrawer(Gravity.END);
-            }
-        });
-
-
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getItemId()==R.id.allOrdersNavId){
-                    startActivity(new Intent(MainActivity.this,OrderDetailsActivity.class));
-                }else if(item.getItemId()==R.id.updateLocationNavId){
-                    startActivity(new Intent(MainActivity.this,AddLocationActivity.class));
-                }
-
-                return false;
-            }
         });
 
 
@@ -126,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        customCart=new CustomCart(this,cartLayout);
-        customCart.init();
 
         ApiRef.getProductRef()
                 .addValueEventListener(new ValueEventListener() {
@@ -155,23 +101,15 @@ public class MainActivity extends AppCompatActivity {
         getUserData();
     }
     private void init(){
-        cartDb=new CartDb(this);
         userDb=new UserDb(this);
         mAuth=FirebaseAuth.getInstance();
 
-        //navigation finding
-        navigationView=findViewById(R.id.navigaitonId);
-        drawerLayout=findViewById(R.id.drawerId);
 
         productRecyclerView=findViewById(R.id.main_ProductRecyclerViewId);
         progressBar=findViewById(R.id.m_progressBarId);
 
-        cartLayout=findViewById(R.id.main_CartItemLayout);
-
-
         //setup toolbar
          toolbar = findViewById(R.id.appBarId);
-         menuButton=toolbar.findViewById(R.id.appbar_menuIcon);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);

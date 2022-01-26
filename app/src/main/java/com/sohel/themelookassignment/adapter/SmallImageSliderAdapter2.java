@@ -5,65 +5,53 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RatingBar;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.sohel.themelookassignment.R;
-import com.sohel.themelookassignment.model.RatingModel;
+import com.sohel.themelookassignment.model.ImageModel;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.MyViewHolder> {
+public class SmallImageSliderAdapter2 extends RecyclerView.Adapter<SmallImageSliderAdapter2.MyViewHolder> {
 
     private Context context;
-    private List<RatingModel> ratingList;
-    private  OnItemClickListner listner;
+    List<ImageModel> imageList=new ArrayList<>();
+    private ProductListAdapter.OnItemClickListner listner;
 
 
-    public ReviewAdapter(Context context, List<RatingModel> ratingList) {
+    public SmallImageSliderAdapter2(Context context, List<ImageModel> imageList) {
         this.context = context;
-        this.ratingList = ratingList;
+        this.imageList = imageList;
     }
+
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.review_item_layout,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.small_image_item_layout,parent,false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        RatingModel review=ratingList.get(position);
-
-        holder.ratingBar.setRating((float) review.getRating());
-       holder.userNameTv.setText(""+review.getUserName());
-        holder.commentTv.setText(""+review.getComment());
-
+           Picasso.get().load(imageList.get(position).getImageUrl()).into(holder.imageView);
     }
 
     @Override
     public int getItemCount() {
-        return ratingList.size();
+        return imageList.size();
     }
 
     public class MyViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener {
-
-        TextView userNameTv,commentTv;
-        RatingBar ratingBar;
-
+        ImageView imageView;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-             ratingBar=itemView.findViewById(R.id.r_i_ratingBar);
-             userNameTv=itemView.findViewById(R.id.r_i_userNameTv);
-             commentTv=itemView.findViewById(R.id.r_i_commentTv);
-
+            imageView=itemView.findViewById(R.id.read_ImageViewid);
             itemView.setOnClickListener(this);
-
-
         }
 
         @Override
@@ -76,11 +64,12 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.MyViewHold
             }
         }
     }
+
     public interface  OnItemClickListner{
         void onItemClick(int position);
     }
 
-    public void setOnItemClickListner(OnItemClickListner listner){
+    public void setOnItemClickListner(ProductListAdapter.OnItemClickListner listner){
         this.listner=listner;
     }
 

@@ -10,25 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ThemeLookAssignment">
         <activity
-            android:name=".views.seller.SellerUserDetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".views.seller.SellerOrderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".views.seller.SellerProductActivity"
-            android:exported="false" />
-        <activity
-            android:name=".views.user.OrderDetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".views.user.AddLocationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".views.user.OrderActivity"
-            android:exported="false" />
-        <activity
-            android:name=".views.user.CartActivity"
+            android:name=".views.user.ProductDetails2Activity"
             android:exported="false" />
         <activity
             android:name=".views.user.ProductDetailsActivity"
