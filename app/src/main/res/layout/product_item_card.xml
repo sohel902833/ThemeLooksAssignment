@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    android:layout_margin="10dp"
+    android:layout_height="370dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/p_i_productImageViewId"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/sari"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:id="@+id/p_i_productTitleTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Product Title"
+            android:layout_below="@+id/p_i_productImageViewId"
+            android:textColor="@color/black"
+            android:padding="10dp"
+            android:fontFamily="@font/aclonica"
+            />
+        <TextView
+            android:id="@+id/p_i_productPriceTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="225"
+            android:layout_below="@+id/p_i_productTitleTv"
+            android:textColor="@color/orange"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"
+            android:fontFamily="@font/aclonica"
+            />
+        <LinearLayout
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            android:layout_below="@+id/p_i_productPriceTv"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RatingBar
+                android:id="@+id/p_i_ratingBarId"
+                android:layout_gravity="center_vertical"
+                android:rating="3.5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?android:attr/ratingBarStyleSmall"
+                />
+
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(3)"
+                android:id="@+id/p_i_ratingTvId"
+                />
+            <ImageView
+                android:id="@+id/p_i_cartImageViewId"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/cart_icon"
+                android:layout_gravity="center_vertical"
+                android:tint="@color/orange"
+                tools:ignore="UseAppTint" />
+             <ImageView
+                 android:layout_marginLeft="10dp"
+                android:id="@+id/p_i_deleteProduct"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/delete_icon"
+                android:layout_gravity="center_vertical"
+                android:tint="@color/orange"
+                tools:ignore="UseAppTint" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.seller.SellerAddProductActivity">
+
+    <include
+        layout="@layout/app_bar_layout"
+        android:id="@+id/appBarId"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <Button
+                android:id="@+id/s_ap_chooseImageButton"
+                android:layout_marginTop="25dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_bg"
+                android:text="Choose Image"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/s_ap_selectedImaegRecyclerViewId"
+                />
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/s_ap_productNameEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:padding="10dp"
+                    android:hint="Product Name"
+                    android:fontFamily="@font/aclonica"
+                    android:textSize="16sp"
+                    />
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:fontFamily="@font/aclonica"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Price For White&amp;Small"
+
+                        />
+                    <EditText
+                        android:id="@+id/s_ap_WSPriceEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#fff"
+                        android:padding="10dp"
+                        android:inputType="number"
+                        android:hint="Price"
+                        android:fontFamily="@font/aclonica"
+                        android:textSize="16sp"
+                        />
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:fontFamily="@font/aclonica"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Price For White&amp;Large"
+
+                        />
+                    <EditText
+                        android:id="@+id/s_ap_WLPriceEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#fff"
+                        android:padding="10dp"
+                        android:inputType="number"
+                        android:hint="Price"
+                        android:fontFamily="@font/aclonica"
+                        android:textSize="16sp"
+                        />
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:fontFamily="@font/aclonica"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Price For Black&amp;Small"
+
+                        />
+                    <EditText
+                        android:id="@+id/s_ap_BSPriceEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#fff"
+                        android:padding="10dp"
+                        android:inputType="number"
+                        android:hint="Price"
+                        android:fontFamily="@font/aclonica"
+                        android:textSize="16sp"
+                        />
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:fontFamily="@font/aclonica"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Price For Black&amp;Large"
+
+                        />
+                    <EditText
+                        android:id="@+id/s_ap_BLPriceEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#fff"
+                        android:padding="10dp"
+                        android:inputType="number"
+                        android:hint="Price"
+                        android:fontFamily="@font/aclonica"
+                        android:textSize="16sp"
+                        />
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:fontFamily="@font/aclonica"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Select Brand"
+
+                        />
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/s_ap_selectProductBrand"
+                        />
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textStyle="bold"
+                        android:fontFamily="@font/aclonica"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Select Product Category"
+                        />
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/s_ap_selectProductCategory"
+                        />
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/s_ap_productDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:padding="10dp"
+                    android:hint="Product Description"
+                    android:fontFamily="@font/aclonica"
+                    android:textSize="16sp"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/imageUploadLayout"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:weightSum="5"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ProgressBar
+                    android:layout_weight="4"
+                    android:progressTint="@color/orange"
+                    android:progressBackgroundTint="@color/white"
+                    android:id="@+id/imageUploadProgressBarId"
+                    android:layout_gravity="center_vertical"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp"
+                    android:elevation="10dp"
+                    android:background="@color/white"
+                    />
+                <TextView
+                    android:id="@+id/completeUploadTvId"
+                    android:textStyle="bold"
+                    android:textSize="19sp"
+                    android:textAlignment="center"
+                    android:text="0/0"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+
+
+            <ProgressBar
+                android:visibility="gone"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/loadingProgressBar"
+                android:layout_marginBottom="12dp"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:indeterminate="true"
+                android:indeterminateTint="@color/purple_500"
+                android:layout_above="@+id/createAgentButton"
+                />
+
+            <Button
+                android:layout_marginBottom="40dp"
+                android:id="@+id/s_ap_uploadProductButton"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_bg"
+                android:text="Upload Product."
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+
+                />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.user.OrderActivity">
+
+    <include
+        layout="@layout/app_bar_layout"
+        android:id="@+id/appBarId"/>
+
+    <Button
+        android:id="@+id/o_addCurrentLocationButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appBarId"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_bg"
+        android:text="Add Current Location"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        />
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="50dp"
+        android:elevation="10dp"
+        android:layout_below="@+id/o_addCurrentLocationButton"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="15dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Md Sohrab Hossain Sohel"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="@font/aclonica"
+                android:id="@+id/o_detailsTvId"
+                />
+
+            <Button
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/o_submitOrderButton"
+                android:layout_width="130dp"
+
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/appBarId"
+                android:background="@drawable/button_bg"
+                android:text="Submit Order"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:layout_marginTop="30dp"
+                />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+</RelativeLayout>

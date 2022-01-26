@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/blue_gradient"
+    tools:context=".views.common.StartActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp"
+                android:fontFamily="@font/aclonica"
+                android:text="daraz"
+                android:textAlignment="center"
+                android:textColor="#fff"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:fontFamily="@font/aclonica"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/login_page_un_text"
+                android:textColor="#fff"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                android:letterSpacing="0.2"
+
+                />
+
+               <TextView
+                   android:fontFamily="@font/aclonica"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Login With Email And Password"
+                android:textColor="#fff"
+                android:layout_gravity="center_horizontal"
+                android:textAlignment="center"
+                />
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <EditText
+                    android:id="@+id/u_l_emailEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:padding="10dp"
+                    android:hint="Enter Email"
+                    android:fontFamily="@font/aclonica"
+                    android:textSize="16sp"
+                    />
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <EditText
+                    android:id="@+id/u_l_passwordEt"
+                    android:inputType="textPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:padding="10dp"
+                    android:hint="Enter Password"
+                    android:fontFamily="@font/aclonica"
+                    android:textSize="16sp"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+
+
+            <Button
+                android:id="@+id/u_l_loginButton"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="end"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_bg"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:fontFamily="@font/aclonica"
+
+                />
+
+            <TextView
+                android:layout_marginRight="15dp"
+                android:id="@+id/u_l_registerTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/aclonica"
+                android:text="Register"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textAlignment="textEnd" />
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

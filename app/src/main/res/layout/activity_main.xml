@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawerId"
+    tools:openDrawer="start"
+    android:background="#FFFFFF"
+    tools:context=".views.user.MainActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:background="@color/purple_700"
+                    android:id="@+id/appBarId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:elevation="15dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/appbar_menuIcon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginRight="5dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/menu"
+                            android:tint="@color/white"
+                            tools:ignore="UseAppTint" />
+
+                        <TextView
+                            android:id="@+id/appBarText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="15dp"
+                            android:layout_toRightOf="@+id/appbar_menuIcon"
+                            android:text="Products"
+                            android:fontFamily="@font/aclonica"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+
+                    </RelativeLayout>
+                     </androidx.appcompat.widget.Toolbar>
+                <ProgressBar
+                    android:id="@+id/m_progressBarId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:progressTint="@color/orange"
+                    android:progressBackgroundTint="@color/orange"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_below="@+id/appBarId"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/main_ProductRecyclerViewId"
+                    />
+
+                <include
+                    android:id="@+id/main_CartItemLayout"
+                    layout="@layout/cart_item_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="20dp" />
+
+
+            </RelativeLayout>
+
+        </FrameLayout>
+    </RelativeLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/navigaitonId"
+        android:background="@color/white"
+        app:menu="@menu/navigation_menu"
+        app:headerLayout="@layout/nav_header"
+        android:layout_gravity="start"
+        />
+
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

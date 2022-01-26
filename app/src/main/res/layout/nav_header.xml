@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/blue_gradient"
+    android:orientation="vertical"
+    android:layout_height="170dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aclonica"
+        android:text="daraz"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:fontFamily="@font/aclonica"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/login_page_un_text"
+        android:textColor="#fff"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:letterSpacing="0.2"
+
+        />
+
+</LinearLayout>

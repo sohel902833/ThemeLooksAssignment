@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/c_i_productImageView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/sari"
+            android:scaleType="fitXY"
+            />
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/c_i_productNameTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Product Name"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:fontFamily="@font/aclonica"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/c_i_productQuantityTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Product Name"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/c_i_productPriceTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textStyle="bold"
+                android:fontFamily="@font/aclonica"
+                android:textColor="@color/orange"
+                android:textSize="20sp"
+                />
+            <include
+                layout="@layout/quantity_counter_layout"
+                android:id="@+id/c_i_quantityItemLayout"/>
+
+            <Button
+                android:id="@+id/c_i_clearButtonId"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:textSize="12sp"
+                android:background="@drawable/button_bg"
+                android:layout_marginTop="10dp"
+                android:text="Remove"
+                android:textAllCaps="false"
+                android:layout_gravity="end"
+                android:textColor="@color/white"
+                />
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/orange"
+
+
+        />
+
+</LinearLayout>
